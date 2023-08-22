@@ -128,8 +128,8 @@ def main():
     else:
         path_directory = path_directory.parents[len(path_directory.parts)-2-censusdis_index]
         target_directory = Path(path_directory, "censusdis", args.filename)
-        
     create_symbolic.write_file(target_directory)
+    
     print("Generated " + args.filename + " file successfully.")
 
 if __name__ == "__main__":
