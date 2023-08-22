@@ -118,9 +118,17 @@ def main():
     parser.add_argument('filename', metavar='filename', type=str,
                         help='a file name for the symbolic name destination file')
     args = parser.parse_args()
-    path_directory = Path.cwd()
-    target_directory = Path(path_directory, args.filename)
 
+    path_directory = Path.cwd()
+    censusdis_index = path_directory.parts.index("censusdis")
+    if censusdis_index == len(path_directory.parts)-1:
+        target_directory = Path(path_directory, "censusdis", args.filename)
+    elif censusdis_index == len(path_directory.parts)-2 and path_directory.parts[-1] == "censusdis":
+        target_directory = Path(path_directory, args.filename)
+    else:
+        path_directory = path_directory.parents[len(path_directory.parts)-2-censusdis_index]
+        target_directory = Path(path_directory, "censusdis", args.filename)
+        
     create_symbolic.write_file(target_directory)
     print("Generated " + args.filename + " file successfully.")
 
