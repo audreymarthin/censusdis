@@ -109,6 +109,3 @@ jobs:
           /usr/bin/git add ./reports/coverage/coverage-badge.svg
           /usr/bin/git add ./reports/junit/tests-badge.svg
           /usr/bin/git diff --staged --quiet || /usr/bin/git commit -m "Update badge(s) [github action]"
-      - name: Update git
-        run: |
-          git push -f 

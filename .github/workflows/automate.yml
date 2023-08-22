@@ -13,7 +13,7 @@ on:
     types: [closed]
 
 jobs:
-  test-coverage:
+  generate-dataset:
     if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     steps:
@@ -77,6 +77,3 @@ jobs:
           /usr/bin/git config --local user.name "GitHub Action"
           /usr/bin/git add datasets.py
           /usr/bin/git commit -m "Update datasets [github action]"
-      - name: Update git
-        run: |
-          git push -f 
