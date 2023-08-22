@@ -12,7 +12,7 @@ But you can always use raw strings. For example, even for `ACS5` you can use
 `acs/acs5` instead. 
 """
 
-
+TEST_TEST = "acwcwecv"
 ABS_CB = "abscb"
 
 ABS_CBO = "abscbo"
