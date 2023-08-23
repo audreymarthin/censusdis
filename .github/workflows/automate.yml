@@ -77,3 +77,6 @@ jobs:
           /usr/bin/git config --local user.name "GitHub Action"
           /usr/bin/git add datasets.py
           /usr/bin/git diff --staged --quiet || /usr/bin/git commit -m "Update datasets [github action]"
+      - name: Update git
+        run: |
+          git push origin main

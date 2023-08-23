@@ -10,14 +10,13 @@
 name: coverage-report
 
 on:
-  pull_request:
-    branches:
-      - main
-    types: [closed]
+  workflow_run:
+    workflows: [automate]
+    types: [completed]
 
 jobs:
   test-coverage:
-    if: ${{ github.event.pull_request.merged }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
@@ -109,3 +108,6 @@ jobs:
           /usr/bin/git add ./reports/coverage/coverage-badge.svg
           /usr/bin/git add ./reports/junit/tests-badge.svg
           /usr/bin/git diff --staged --quiet || /usr/bin/git commit -m "Update badge(s) [github action]"
+      - name: Update git
+        run: |
+          git push origin main
