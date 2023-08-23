@@ -7,13 +7,12 @@ name: generate-update
 
 on:
   workflow_run:
-    workflows: ["automate", "coverage-report"]
-    types:
-      - completed
-      - success
+    workflows: [coverage-report]
+    types: [completed]
 
 jobs:
   push-changes:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------

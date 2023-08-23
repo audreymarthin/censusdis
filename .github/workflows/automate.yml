@@ -77,4 +77,4 @@ jobs:
           /usr/bin/git config --local user.name "GitHub Action"
           echo "Current directory: $(pwd)"
           /usr/bin/git add datasets.py
-          /usr/bin/git commit -m "Update datasets [github action]"
+          /usr/bin/git diff --staged --quiet || /usr/bin/git commit -m "Update datasets [github action]"
