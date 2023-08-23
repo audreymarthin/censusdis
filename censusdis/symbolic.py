@@ -120,16 +120,18 @@ def main():
     args = parser.parse_args()
 
     path_directory = Path.cwd()
-    censusdis_index = path_directory.parts.index("censusdis")
-    if censusdis_index == len(path_directory.parts)-1:
-        target_directory = Path(path_directory, "censusdis", args.filename)
-    elif censusdis_index == len(path_directory.parts)-2 and path_directory.parts[-1] == "censusdis":
-        target_directory = Path(path_directory, args.filename)
-    else:
-        path_directory = path_directory.parents[len(path_directory.parts)-2-censusdis_index]
-        target_directory = Path(path_directory, "censusdis", args.filename)
+    target_directory = Path(path_directory, args.filename)
+    
+    # censusdis_index = path_directory.parts.index("censusdis")
+    # if censusdis_index == len(path_directory.parts)-1:
+    #     target_directory = Path(path_directory, "censusdis", args.filename)
+    # elif censusdis_index == len(path_directory.parts)-2 and path_directory.parts[-1] == "censusdis":
+    #     target_directory = Path(path_directory, args.filename)
+    # else:
+    #     path_directory = path_directory.parents[len(path_directory.parts)-2-censusdis_index]
+    #     target_directory = Path(path_directory, "censusdis", args.filename)
     create_symbolic.write_file(target_directory)
-    print("Generated " + args.filename + " file successfully.")
+    print("Generated " + args.filename + " file successfully in " + str(target_directory))
 
 if __name__ == "__main__":
     main()
