@@ -67,6 +67,9 @@ jobs:
       #----------------------------------------------
       - name: Run symbolic.py to update datasets file
         run: |
+          echo "Current directory: $(pwd)"
+          echo "Contents of directory:"
+          ls -la
           poetry run python censusdis/symbolic.py datasets.py
       #----------------------------------------------
       #           commit updated datasets
@@ -75,8 +78,11 @@ jobs:
         run: |
           /usr/bin/git config --local user.email "action@github.com"
           /usr/bin/git config --local user.name "GitHub Action"
-          /usr/bin/git add datasets.py
+          /usr/bin/git add datasets2.py
+          echo "Current directory: $(pwd)"
+          echo "Contents of directory:"
+          ls -la
           /usr/bin/git commit -m "Update datasets [github action]"
       - name: Update git
         run: |
-          git push origin main
+          git push 
