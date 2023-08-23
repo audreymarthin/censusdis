@@ -123,16 +123,12 @@ def main():
     censusdis_index = path_directory.parts.index("censusdis")
     if censusdis_index == len(path_directory.parts)-1:
         target_directory = Path(path_directory, "censusdis", args.filename)
-        print(1, target_directory)
     elif censusdis_index == len(path_directory.parts)-2 and path_directory.parts[-1] == "censusdis":
         target_directory = Path(path_directory, args.filename)
-        print(2, target_directory)
     else:
         path_directory = path_directory.parents[len(path_directory.parts)-2-censusdis_index]
         target_directory = Path(path_directory, "censusdis", args.filename)
-        print(3, target_directory)
     create_symbolic.write_file(target_directory)
-    print(target_directory)
     print("Generated " + args.filename + " file successfully.")
 
 if __name__ == "__main__":

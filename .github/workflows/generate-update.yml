@@ -10,6 +10,7 @@ on:
     workflows: ["automate", "coverage-report"]
     types:
       - completed
+      - success
 
 jobs:
   push-changes:
