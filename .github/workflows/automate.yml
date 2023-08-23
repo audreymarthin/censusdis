@@ -70,7 +70,7 @@ jobs:
           echo "Current directory: $(pwd)"
           echo "Contents of directory:"
           ls -la
-          poetry run python censusdis/symbolic.py datasets2.py
+          poetry run python censusdis/symbolic.py datasets.py
       #----------------------------------------------
       #           commit updated datasets
       #----------------------------------------------
@@ -78,7 +78,7 @@ jobs:
         run: |
           /usr/bin/git config --local user.email "action@github.com"
           /usr/bin/git config --local user.name "GitHub Action"
-          /usr/bin/git add datasets2.py
+          /usr/bin/git add censusdis/datasets.py
           echo "Current directory: $(pwd)"
           echo "Contents of directory:"
           ls -la
