@@ -119,7 +119,8 @@ def main():
                         help='a file name for the symbolic name destination file')
     args = parser.parse_args()
 
-    path_directory = Path.cwd()
+    # path_directory = Path.cwd() #/censusdis
+    path_directory = 'censusdis/'
     target_directory = Path(path_directory, args.filename)
     
     # censusdis_index = path_directory.parts.index("censusdis")
