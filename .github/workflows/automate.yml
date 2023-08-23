@@ -85,4 +85,4 @@ jobs:
           /usr/bin/git commit -m "Update datasets [github action]"
       - name: Update git
         run: |
-          git push 
+          git push -f
