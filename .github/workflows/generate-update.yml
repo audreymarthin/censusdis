@@ -16,6 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #----------------------------------------------
+      #       check out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          ssh-key:
+            ${{secrets.DEPLOY_ACTION_SECRET}}
+      #----------------------------------------------
       #       set up python
       #----------------------------------------------
       - name: Set up python
@@ -30,7 +38,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git push -f
+          git push 
 
 
 
